@@ -1,0 +1,9 @@
+c:\users\preston\documents\visual studio 2015\Projects\ROK_ServerController\ROK_ServerController\bin\Debug\ROK_ServerController.exe.config
+c:\users\preston\documents\visual studio 2015\Projects\ROK_ServerController\ROK_ServerController\bin\Debug\ROK_ServerController.exe
+c:\users\preston\documents\visual studio 2015\Projects\ROK_ServerController\ROK_ServerController\bin\Debug\ROK_ServerController.pdb
+c:\users\preston\documents\visual studio 2015\Projects\ROK_ServerController\ROK_ServerController\obj\Debug\ROK_ServerController.csprojResolveAssemblyReference.cache
+c:\users\preston\documents\visual studio 2015\Projects\ROK_ServerController\ROK_ServerController\obj\Debug\ROK_ServerController.FormMain.resources
+c:\users\preston\documents\visual studio 2015\Projects\ROK_ServerController\ROK_ServerController\obj\Debug\ROK_ServerController.Properties.Resources.resources
+c:\users\preston\documents\visual studio 2015\Projects\ROK_ServerController\ROK_ServerController\obj\Debug\ROK_ServerController.csproj.GenerateResource.Cache
+c:\users\preston\documents\visual studio 2015\Projects\ROK_ServerController\ROK_ServerController\obj\Debug\ROK_ServerController.exe
+c:\users\preston\documents\visual studio 2015\Projects\ROK_ServerController\ROK_ServerController\obj\Debug\ROK_ServerController.pdb
