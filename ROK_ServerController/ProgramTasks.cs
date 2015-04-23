@@ -10,8 +10,7 @@ namespace ROK_ServerController
         public string configPath { get; set; }
 
         public string args { get; set; }
-
-        public decimal resetTime { get; set; }
+        public decimal resetTime { get; set; } //never used
         public DateTime timeNow { get; set; }
         public TimeSpan timespan { get; set; }
 
@@ -32,8 +31,8 @@ namespace ROK_ServerController
                     string[] lines2 = new string[2];
                     lines2[0] = this.serverPath;
                     lines2[1] = this.configPath;
-                    if (serverPath != null && serverPath != "" && serverPath != " "
-                        && configPath != null && configPath != "" && configPath != " ")
+                    if (!string.IsNullOrEmpty(serverPath) && serverPath != " "
+                        && !string.IsNullOrEmpty(configPath) && configPath != " ")
                     {
                         File.WriteAllLines("programConfig.cfg", lines2);
                     }
