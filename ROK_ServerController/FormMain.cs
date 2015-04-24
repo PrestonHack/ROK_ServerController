@@ -1,12 +1,8 @@
-﻿using System;
+using System;
 using System.Media;
 using System.Diagnostics;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
@@ -21,7 +17,6 @@ namespace ROK_ServerController
             
         }
         PerformanceCounters counters = new PerformanceCounters();
-        PerformanceChart countersChart = new PerformanceChart();
         ProgramTasks tasks = new ProgramTasks();
         bool startClicked = false;
 
