@@ -53,8 +53,6 @@
             this.checkBoxEnableStop = new System.Windows.Forms.CheckBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnOpenConfig = new System.Windows.Forms.Button();
-            this.btnConfigPath = new System.Windows.Forms.Button();
-            this.btnServerPath = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
             this.textBoxDisplay = new System.Windows.Forms.TextBox();
@@ -102,8 +100,6 @@
             this.tabPageServerSettings.Controls.Add(this.checkBoxEnableStop);
             this.tabPageServerSettings.Controls.Add(this.btnExit);
             this.tabPageServerSettings.Controls.Add(this.btnOpenConfig);
-            this.tabPageServerSettings.Controls.Add(this.btnConfigPath);
-            this.tabPageServerSettings.Controls.Add(this.btnServerPath);
             this.tabPageServerSettings.Controls.Add(this.btnStop);
             this.tabPageServerSettings.Controls.Add(this.btnStart);
             this.tabPageServerSettings.Controls.Add(this.textBoxDisplay);
@@ -118,7 +114,7 @@
             // checkBoxAlarm
             // 
             this.checkBoxAlarm.AutoSize = true;
-            this.checkBoxAlarm.Location = new System.Drawing.Point(383, 349);
+            this.checkBoxAlarm.Location = new System.Drawing.Point(559, 223);
             this.checkBoxAlarm.Name = "checkBoxAlarm";
             this.checkBoxAlarm.Size = new System.Drawing.Size(142, 20);
             this.checkBoxAlarm.TabIndex = 23;
@@ -128,7 +124,7 @@
             // checkBoxAutoRestart
             // 
             this.checkBoxAutoRestart.AutoSize = true;
-            this.checkBoxAutoRestart.Location = new System.Drawing.Point(276, 349);
+            this.checkBoxAutoRestart.Location = new System.Drawing.Point(560, 196);
             this.checkBoxAutoRestart.Name = "checkBoxAutoRestart";
             this.checkBoxAutoRestart.Size = new System.Drawing.Size(100, 20);
             this.checkBoxAutoRestart.TabIndex = 22;
@@ -139,7 +135,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(193, 300);
+            this.label2.Location = new System.Drawing.Point(212, 279);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(153, 16);
             this.label2.TabIndex = 21;
@@ -159,7 +155,7 @@
             // labelMinutes
             // 
             this.labelMinutes.AutoSize = true;
-            this.labelMinutes.Location = new System.Drawing.Point(67, 304);
+            this.labelMinutes.Location = new System.Drawing.Point(67, 307);
             this.labelMinutes.Name = "labelMinutes";
             this.labelMinutes.Size = new System.Drawing.Size(54, 16);
             this.labelMinutes.TabIndex = 19;
@@ -169,7 +165,7 @@
             // labelHours
             // 
             this.labelHours.AutoSize = true;
-            this.labelHours.Location = new System.Drawing.Point(67, 278);
+            this.labelHours.Location = new System.Drawing.Point(67, 279);
             this.labelHours.Name = "labelHours";
             this.labelHours.Size = new System.Drawing.Size(44, 16);
             this.labelHours.TabIndex = 18;
@@ -179,7 +175,7 @@
             // checkBoxRestart
             // 
             this.checkBoxRestart.AutoSize = true;
-            this.checkBoxRestart.Location = new System.Drawing.Point(9, 323);
+            this.checkBoxRestart.Location = new System.Drawing.Point(560, 249);
             this.checkBoxRestart.Name = "checkBoxRestart";
             this.checkBoxRestart.Size = new System.Drawing.Size(154, 20);
             this.checkBoxRestart.TabIndex = 17;
@@ -189,7 +185,7 @@
             // 
             // numericUpDownMinutes
             // 
-            this.numericUpDownMinutes.Location = new System.Drawing.Point(8, 298);
+            this.numericUpDownMinutes.Location = new System.Drawing.Point(9, 301);
             this.numericUpDownMinutes.Maximum = new decimal(new int[] {
             59,
             0,
@@ -204,7 +200,7 @@
             // 
             // numericUpDownHours
             // 
-            this.numericUpDownHours.Location = new System.Drawing.Point(8, 272);
+            this.numericUpDownHours.Location = new System.Drawing.Point(8, 273);
             this.numericUpDownHours.Maximum = new decimal(new int[] {
             23,
             0,
@@ -220,7 +216,7 @@
             // 
             this.labelTillReset.AutoSize = true;
             this.labelTillReset.ForeColor = System.Drawing.Color.Red;
-            this.labelTillReset.Location = new System.Drawing.Point(354, 300);
+            this.labelTillReset.Location = new System.Drawing.Point(371, 279);
             this.labelTillReset.Name = "labelTillReset";
             this.labelTillReset.Size = new System.Drawing.Size(117, 16);
             this.labelTillReset.TabIndex = 13;
@@ -250,7 +246,7 @@
             this.groupBox1.Controls.Add(this.checkedListBox1);
             this.groupBox1.Location = new System.Drawing.Point(556, 7);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(212, 236);
+            this.groupBox1.Size = new System.Drawing.Size(212, 183);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Start up arguments";
@@ -267,13 +263,13 @@
             "-logfile"});
             this.checkedListBox1.Location = new System.Drawing.Point(3, 18);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(206, 215);
+            this.checkedListBox1.Size = new System.Drawing.Size(206, 162);
             this.checkedListBox1.TabIndex = 8;
             // 
             // checkBoxEnableStop
             // 
             this.checkBoxEnableStop.AutoSize = true;
-            this.checkBoxEnableStop.Location = new System.Drawing.Point(667, 267);
+            this.checkBoxEnableStop.Location = new System.Drawing.Point(560, 275);
             this.checkBoxEnableStop.Name = "checkBoxEnableStop";
             this.checkBoxEnableStop.Size = new System.Drawing.Size(101, 20);
             this.checkBoxEnableStop.TabIndex = 7;
@@ -301,33 +297,13 @@
             this.btnOpenConfig.UseVisualStyleBackColor = true;
             this.btnOpenConfig.Click += new System.EventHandler(this.btnOpenConfig_Click);
             // 
-            // btnConfigPath
-            // 
-            this.btnConfigPath.Location = new System.Drawing.Point(666, 300);
-            this.btnConfigPath.Name = "btnConfigPath";
-            this.btnConfigPath.Size = new System.Drawing.Size(102, 35);
-            this.btnConfigPath.TabIndex = 4;
-            this.btnConfigPath.Text = "Config Path";
-            this.btnConfigPath.UseVisualStyleBackColor = true;
-            this.btnConfigPath.Click += new System.EventHandler(this.btnConfigPath_Click);
-            // 
-            // btnServerPath
-            // 
-            this.btnServerPath.Location = new System.Drawing.Point(558, 300);
-            this.btnServerPath.Name = "btnServerPath";
-            this.btnServerPath.Size = new System.Drawing.Size(102, 35);
-            this.btnServerPath.TabIndex = 3;
-            this.btnServerPath.Text = "Server Path";
-            this.btnServerPath.UseVisualStyleBackColor = true;
-            this.btnServerPath.Click += new System.EventHandler(this.btnServerPath_Click);
-            // 
             // btnStop
             // 
             this.btnStop.BackColor = System.Drawing.Color.Red;
             this.btnStop.Enabled = false;
             this.btnStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStop.ForeColor = System.Drawing.Color.White;
-            this.btnStop.Location = new System.Drawing.Point(666, 259);
+            this.btnStop.Location = new System.Drawing.Point(666, 300);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(102, 35);
             this.btnStop.TabIndex = 2;
@@ -338,7 +314,7 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(558, 259);
+            this.btnStart.Location = new System.Drawing.Point(556, 300);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(102, 35);
             this.btnStart.TabIndex = 1;
@@ -441,8 +417,6 @@
         private System.Windows.Forms.CheckBox checkBoxEnableStop;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnOpenConfig;
-        private System.Windows.Forms.Button btnConfigPath;
-        private System.Windows.Forms.Button btnServerPath;
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.TextBox textBoxDisplay;

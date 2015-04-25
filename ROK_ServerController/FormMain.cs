@@ -29,9 +29,16 @@ namespace ROK_ServerController
         }
         private void checkBoxEnableStop_CheckedChanged(object sender, EventArgs e)
         {
-            checkBoxEnableStop.Visible = false;
-            btnStop.Visible = true;
-            btnStop.Enabled = true;
+            if (checkBoxEnableStop.Checked == true)
+            {
+                btnStop.Visible = true;
+                btnStop.Enabled = true;
+            }
+            else
+            {
+                btnStop.Visible = false;
+                btnStop.Enabled = false;
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -49,7 +56,7 @@ namespace ROK_ServerController
             {
                 tasks.createConfigFile();
                 var args = getArgs(checkedListBox1);
-                tasks.args = "-batchmode " + args;
+                tasks.args = "-batchmode" + args;
                 Process.Start(tasks.serverPath, tasks.args);
                 resetClock.Enabled = true;
                 resetClock.Start();
@@ -89,20 +96,14 @@ namespace ROK_ServerController
                 }
             }
         }
-
-        private void btnServerPath_Click(object sender, EventArgs e)
-        {
-            openFileDialogMain.ShowDialog();
-        }
-        private void btnConfigPath_Click(object sender, EventArgs e)
-        {
-            openFileDialogMain.ShowDialog();
-        }
-
         private void btnOpenConfig_Click(object sender, EventArgs e)
         {
             openFileDialogMain.ShowDialog();
-            Process.Start(openFileDialogMain.FileName);
+            try
+            {
+                Process.Start(openFileDialogMain.FileName);
+            }
+            catch { }
         }
         private string getArgs(CheckedListBox checkedList)
         {
@@ -366,19 +367,17 @@ namespace ROK_ServerController
                                 p.Kill();
                             }
                         }
-                    }
-                    else
-                        MessageBox.Show("exists");
+                    }                    
                 }
             }
         }
         private bool updateBool()
         {
-            bool crap = (Directory.Exists("Configuration") && File.Exists("Configuration\\ServerSettings.cfg")
+            bool doFilesExist = (Directory.Exists("Configuration") && File.Exists("Configuration\\ServerSettings.cfg")
                             && File.Exists("Configuration\\DeathMessages.cfg") && File.Exists("Configuration\\Permissions.cfg") && File.Exists("Configuration\\BannedPlayers.cfg")
                             && File.Exists("Configuration\\Whitelist.cfg") && File.Exists("Configuration\\Users.cfg"));
 
-            return crap;
+            return doFilesExist;
         }
     }
 }
