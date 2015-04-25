@@ -7,3 +7,12 @@ c:\users\preston\documents\visual studio 2015\Projects\ROK_ServerController\ROK_
 c:\users\preston\documents\visual studio 2015\Projects\ROK_ServerController\ROK_ServerController\obj\Debug\ROK_ServerController.csproj.GenerateResource.Cache
 c:\users\preston\documents\visual studio 2015\Projects\ROK_ServerController\ROK_ServerController\obj\Debug\ROK_ServerController.exe
 c:\users\preston\documents\visual studio 2015\Projects\ROK_ServerController\ROK_ServerController\obj\Debug\ROK_ServerController.pdb
+C:\Users\Preston\Documents\GitHub\ROKServerControllerPublished\ROK_ServerController\ROK_ServerController\ROK_ServerController\bin\Debug\ROK_ServerController.exe.config
+C:\Users\Preston\Documents\GitHub\ROKServerControllerPublished\ROK_ServerController\ROK_ServerController\ROK_ServerController\obj\Debug\ROK_ServerController.exe
+C:\Users\Preston\Documents\GitHub\ROKServerControllerPublished\ROK_ServerController\ROK_ServerController\ROK_ServerController\obj\Debug\ROK_ServerController.pdb
+C:\Users\Preston\Documents\GitHub\ROKServerControllerPublished\ROK_ServerController\ROK_ServerController\ROK_ServerController\obj\Debug\ROK_ServerController.csprojResolveAssemblyReference.cache
+C:\Users\Preston\Documents\GitHub\ROKServerControllerPublished\ROK_ServerController\ROK_ServerController\ROK_ServerController\obj\Debug\ROK_ServerController.FormMain.resources
+C:\Users\Preston\Documents\GitHub\ROKServerControllerPublished\ROK_ServerController\ROK_ServerController\ROK_ServerController\obj\Debug\ROK_ServerController.Properties.Resources.resources
+C:\Users\Preston\Documents\GitHub\ROKServerControllerPublished\ROK_ServerController\ROK_ServerController\ROK_ServerController\obj\Debug\ROK_ServerController.csproj.GenerateResource.Cache
+C:\Users\Preston\Documents\GitHub\ROKServerControllerPublished\ROK_ServerController\ROK_ServerController\ROK_ServerController\bin\Debug\ROK_ServerController.exe
+C:\Users\Preston\Documents\GitHub\ROKServerControllerPublished\ROK_ServerController\ROK_ServerController\ROK_ServerController\bin\Debug\ROK_ServerController.pdb
