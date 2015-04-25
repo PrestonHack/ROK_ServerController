@@ -355,8 +355,10 @@ namespace ROK_ServerController
                         {
                             updateBool();
                         }
-                        if (crap == true)
+                        if (updateBool() == true)
                         {
+                            tasks.configPath = "Configuration\\ServerSettings.cfg";
+                            tasks.createConfigFile();
                             Process[] rok = Process.GetProcessesByName("ROK");
                             foreach (Process p in rok)
                             {
@@ -375,6 +377,7 @@ namespace ROK_ServerController
             bool crap = (Directory.Exists("Configuration") && File.Exists("Configuration\\ServerSettings.cfg")
                             && File.Exists("Configuration\\DeathMessages.cfg") && File.Exists("Configuration\\Permissions.cfg") && File.Exists("Configuration\\BannedPlayers.cfg")
                             && File.Exists("Configuration\\Whitelist.cfg") && File.Exists("Configuration\\Users.cfg"));
+
             return crap;
         }
     }
