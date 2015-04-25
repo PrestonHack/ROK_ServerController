@@ -36,6 +36,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageServerSettings = new System.Windows.Forms.TabPage();
+            this.checkBoxAlarm = new System.Windows.Forms.CheckBox();
             this.checkBoxAutoRestart = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSetTime = new System.Windows.Forms.Button();
@@ -62,7 +63,6 @@
             this.performanceTimer = new System.Windows.Forms.Timer(this.components);
             this.openFileDialogMain = new System.Windows.Forms.OpenFileDialog();
             this.resetClock = new System.Windows.Forms.Timer(this.components);
-            this.checkBoxAlarm = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPageServerSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMinutes)).BeginInit();
@@ -114,6 +114,16 @@
             this.tabPageServerSettings.TabIndex = 0;
             this.tabPageServerSettings.Text = "ServerSettings";
             this.tabPageServerSettings.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxAlarm
+            // 
+            this.checkBoxAlarm.AutoSize = true;
+            this.checkBoxAlarm.Location = new System.Drawing.Point(383, 349);
+            this.checkBoxAlarm.Name = "checkBoxAlarm";
+            this.checkBoxAlarm.Size = new System.Drawing.Size(142, 20);
+            this.checkBoxAlarm.TabIndex = 23;
+            this.checkBoxAlarm.Text = "Sound Crash Alarm";
+            this.checkBoxAlarm.UseVisualStyleBackColor = true;
             // 
             // checkBoxAutoRestart
             // 
@@ -251,7 +261,6 @@
             this.checkedListBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.checkedListBox1.FormattingEnabled = true;
             this.checkedListBox1.Items.AddRange(new object[] {
-            "-batchmode",
             "-nographics",
             "-silent-crashes",
             "-nolog",
@@ -396,16 +405,6 @@
             // 
             this.resetClock.Interval = 1000;
             this.resetClock.Tick += new System.EventHandler(this.resetClock_Tick);
-            // 
-            // checkBoxAlarm
-            // 
-            this.checkBoxAlarm.AutoSize = true;
-            this.checkBoxAlarm.Location = new System.Drawing.Point(383, 349);
-            this.checkBoxAlarm.Name = "checkBoxAlarm";
-            this.checkBoxAlarm.Size = new System.Drawing.Size(142, 20);
-            this.checkBoxAlarm.TabIndex = 23;
-            this.checkBoxAlarm.Text = "Sound Crash Alarm";
-            this.checkBoxAlarm.UseVisualStyleBackColor = true;
             // 
             // FormMain
             // 

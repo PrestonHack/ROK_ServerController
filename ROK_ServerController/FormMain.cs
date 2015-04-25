@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Media;
 using System.Diagnostics;
 using System.ComponentModel;
@@ -14,7 +15,7 @@ namespace ROK_ServerController
         public FormMain()
         {
             InitializeComponent();
-            
+
         }
         PerformanceCounters counters = new PerformanceCounters();
         ProgramTasks tasks = new ProgramTasks();
@@ -24,6 +25,7 @@ namespace ROK_ServerController
         private void FormMain_Load(object sender, EventArgs e)
         {
             performanceTimer.Start();
+            getRokPath();
         }
         private void checkBoxEnableStop_CheckedChanged(object sender, EventArgs e)
         {
@@ -43,15 +45,23 @@ namespace ROK_ServerController
         }
         private void btnStart_Click(object sender, EventArgs e)
         {
-            tasks.createConfigFile();
-            var args = getArgs(checkedListBox1);
-            tasks.args = args;
-            Process.Start(tasks.serverPath, tasks.args);
-            resetClock.Enabled = true;
-            resetClock.Start();            
-            calculateTime();
-            labelTillReset.ForeColor = Color.Black;
-            startClicked = true;
+            try
+            {
+                tasks.createConfigFile();
+                var args = getArgs(checkedListBox1);
+                tasks.args = "-batchmode " + args;
+                Process.Start(tasks.serverPath, tasks.args);
+                resetClock.Enabled = true;
+                resetClock.Start();
+                calculateTime();
+                labelTillReset.ForeColor = Color.Black;
+                startClicked = true;
+            }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("You need to select the path to ROK.exe", "ERROR!");
+            }
+
 
         }
 
@@ -59,14 +69,14 @@ namespace ROK_ServerController
         {
             TimeSpan span = new TimeSpan(Convert.ToInt16(numericUpDownHours.Value), Convert.ToInt16(numericUpDownMinutes.Value), 0);
             tasks.timespan = span;
-           
+
             Process[] runningProcess = Process.GetProcessesByName("ROK");
 
-           
+
             if (runningProcess.Length <= 0)
-            { 
-           
-                if (checkBoxAutoRestart.Checked == true) 
+            {
+
+                if (checkBoxAutoRestart.Checked == true)
                 {
                     tasks.createConfigFile();
                     Process.Start(tasks.serverPath, tasks.args);
@@ -95,7 +105,7 @@ namespace ROK_ServerController
             Process.Start(openFileDialogMain.FileName);
         }
         private string getArgs(CheckedListBox checkedList)
-        {           
+        {
             string args = null;
             foreach (string s in checkedList.CheckedItems)
             {
@@ -103,7 +113,7 @@ namespace ROK_ServerController
             }
 
             return args;
-        }      
+        }
 
         private void maskedTextBoxPerfTimer_TextChanged(object sender, EventArgs e)
         {
@@ -116,6 +126,7 @@ namespace ROK_ServerController
 
         private void performanceTimer_Tick(object sender, EventArgs e)
         {
+
             Process[] runningProcess = Process.GetProcessesByName("ROK");
             if (runningProcess.Length > 0)
             {
@@ -123,12 +134,12 @@ namespace ROK_ServerController
                 textBoxDisplay.Text =
                     "Server path: " + tasks.serverPath + Environment.NewLine +
                     "Configuration path: " + tasks.configPath + Environment.NewLine +
-                    "Running with Start up args: " + getArgs(checkedListBox1) + Environment.NewLine +
+                    "Running with Start up args: -batchmode " + getArgs(checkedListBox1) + Environment.NewLine +
                     "Server is using: " + Math.Round(counters.CPU, 2, MidpointRounding.AwayFromZero) + "% of CPU" + Environment.NewLine +
                     "Server is using: " + counters.usedRAM.ToString("N1") + "MB of system RAM" + Environment.NewLine +
                     "System RAM free: " + counters.availableRAM.ToString("N1") + "MB" + Environment.NewLine +
                     "Is server responsive: " + runningProcess[0].Responding;
-               
+
                 updateChart(chart1);
             }
             else
@@ -144,7 +155,7 @@ namespace ROK_ServerController
                     }
                     calculateTime();
                 }
-                
+
             }
         }
 
@@ -172,13 +183,13 @@ namespace ROK_ServerController
             chart1.ChartAreas[0].AxisY.Minimum = 0;
             chart1.ChartAreas[0].AxisY.Interval = 5;
             chart1.ChartAreas[0].AxisX.IntervalType = DateTimeIntervalType.Seconds;
-            var minDate = DateTime.Now.Subtract(TimeSpan.FromSeconds(30));            
+            var minDate = DateTime.Now.Subtract(TimeSpan.FromSeconds(30));
             chart1.ChartAreas[0].AxisX.Minimum = minDate.ToOADate();
             chart1.ChartAreas[0].AxisX.Maximum = time.ToOADate();
             chart1.Series[0].Points.AddXY(time, counters.CPU);
-      
+
             chart1.ChartAreas[0].AxisX.LabelStyle.Format = "hh:mm:ss";
-            
+
             //chart1.ChartAreas[0].AxisY.Maximum = 100;
             chart1.ChartAreas[0].AxisY.Minimum = 0;
             chart1.ChartAreas[0].AxisY.Interval = 5;
@@ -189,7 +200,7 @@ namespace ROK_ServerController
 
             chart1.ChartAreas[0].AxisX.LabelStyle.Format = "hh:mm:ss";
 
-        }     
+        }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -200,7 +211,7 @@ namespace ROK_ServerController
         }
 
         private void openFileDialogMain_FileOk(object sender, CancelEventArgs e)
-        { 
+        {
             if (openFileDialogMain.FileName.Contains("ROK.exe"))
             {
                 tasks.serverPath = openFileDialogMain.FileName;
@@ -262,11 +273,11 @@ namespace ROK_ServerController
                 label2.Visible = false;
                 labelTillReset.Visible = false;
             }
-            
+
         }
         private void setResetTime()
         {
-           
+
             decimal hours = numericUpDownHours.Value;
             decimal minutes = numericUpDownMinutes.Value;
             if (numericUpDownHours.Value > 0 || numericUpDownMinutes.Value > 0)
@@ -322,9 +333,49 @@ namespace ROK_ServerController
                 }
 
             }
-            
 
+        }
+        private void getRokPath()
+        {
+            string key = @"Local Settings\Software\Microsoft\Windows\Shell\MuiCache";
+            string[] temp;
+            temp = Microsoft.Win32.Registry.ClassesRoot.OpenSubKey(key).GetValueNames();
+            foreach (string s in temp)
+            {
+                if (s.Contains("ROK.exe"))
+                {
+                    int i = s.LastIndexOf(".");
+                    string serverPath = s.Remove(i);
+                    tasks.serverPath = serverPath;
+                    if (!Directory.Exists("Configuration"))
+                    {
+                        Process.Start(tasks.serverPath, "-batchmode");
+                        bool crap = updateBool();
+                        while (updateBool() != true)
+                        {
+                            updateBool();
+                        }
+                        if (crap == true)
+                        {
+                            Process[] rok = Process.GetProcessesByName("ROK");
+                            foreach (Process p in rok)
+                            {
 
+                                p.Kill();
+                            }
+                        }
+                    }
+                    else
+                        MessageBox.Show("exists");
+                }
+            }
+        }
+        private bool updateBool()
+        {
+            bool crap = (Directory.Exists("Configuration") && File.Exists("Configuration\\ServerSettings.cfg")
+                            && File.Exists("Configuration\\DeathMessages.cfg") && File.Exists("Configuration\\Permissions.cfg") && File.Exists("Configuration\\BannedPlayers.cfg")
+                            && File.Exists("Configuration\\Whitelist.cfg") && File.Exists("Configuration\\Users.cfg"));
+            return crap;
         }
     }
 }

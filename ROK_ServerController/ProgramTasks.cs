@@ -40,8 +40,6 @@ namespace ROK_ServerController
                     {
                         MessageBox.Show("Unless you want to create a new server configureation, you need to set the path to ROK server and config", "Error");
                     }
-
-
                 }
             }
             catch
@@ -60,11 +58,8 @@ namespace ROK_ServerController
         
             var lines = File.ReadAllLines(configPath);
             lines[8] = "restartTime =" + " '" + time + "'" + "   #0 seconds to disable.";
-            File.WriteAllLines(configPath, lines);
-            
-             
-           
-           
+            File.WriteAllLines(configPath, lines);         
+                                   
         }
     }
 }
