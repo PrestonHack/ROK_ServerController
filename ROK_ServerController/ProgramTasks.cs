@@ -10,8 +10,8 @@ namespace ROK_ServerController
         public string configPath { get; set; }
 
         public string args { get; set; }
-        public decimal resetTime { get; set; } //never used
-        public DateTime timeNow { get; set; }
+
+        public decimal resetTime { get; set; }
         public TimeSpan timespan { get; set; }
 
         public void createConfigFile()
@@ -38,7 +38,7 @@ namespace ROK_ServerController
                     }
                     else
                     {
-                        MessageBox.Show("You need to set the path to ROK server and config", "Error");
+                        MessageBox.Show("Unless you want to create a new server configureation, you need to set the path to ROK server and config", "Error");
                     }
 
 
@@ -59,7 +59,7 @@ namespace ROK_ServerController
             configPath = lines2[1];
         
             var lines = File.ReadAllLines(configPath);
-            lines[8] = "restartTime =" + " '" + time + "'" + "   #0 seconds to disable. TestWriten4/17";
+            lines[8] = "restartTime =" + " '" + time + "'" + "   #0 seconds to disable.";
             File.WriteAllLines(configPath, lines);
             
              
